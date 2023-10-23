@@ -106,3 +106,8 @@ python metric.py --input-dir mgsm/output \
 
 ## <img src="https://cdn.jsdelivr.net/gh/LightChen233/blog-img/organizer.png" width="25" /> Model Performance
 ![](./img/result.png)
+
+
+## <img src="https://cdn.jsdelivr.net/gh/LightChen233/blog-img/intro.png" width="25" /> Contact
+
+Please create Github issues here or email [Libo Qin](mailto:lbqin@ir.hit.edu.cn) or [Qiguang Chen](mailto:charleschen2333@gmail.com) if you have any questions or suggestions.
