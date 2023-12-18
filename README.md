@@ -18,32 +18,35 @@
 <img src="./img/csu_logo.png" width="48%">
 <img src="./img/SCIR_logo.png" width="48%">
 </div>
-This repository contains the implementation and the data of the paper: Cross-lingual Prompting: Improving Zero-shot Chain-of-Thought Reasoning across Languages. Libo Qin*, Qiguang Chen*, Fuxuan Wei, Shijue Huang, Wanxiang Che. EMNLP 2023.[PDF] .
+This repository contains the implementation and the data of the paper: Cross-lingual Prompting: Improving Zero-shot Chain-of-Thought Reasoning across Languages. Libo Qin*, Qiguang Chen*, Fuxuan Wei, Shijue Huang, Wanxiang Che. EMNLP 2023. [<a href="https://aclanthology.org/2023.emnlp-main.163">PDF</a>] .
 
-## <img src="https://cdn.jsdelivr.net/gh/LightChen233/blog-img/motivation.png" width="25" />  Motivation
-There are over 200 countries and 7,000 languages worldwide. With the acceleration of globalization, there is an urgent need for generalizing the current CoT across different languages. 
-Despite the remarkable success of zero-shot CoT, its reasoning abilities still struggle to generalize to different languages. Unfortunately, little attention has been paid to zero-shot cross-lingual CoT.
 <div align="center">
-<img src="./img/intro.png" width="240" />
+<img src="./img/intro.png" width="480" />
 </div>
-To generalize the current CoT across languages, we propose a novel cross-lingual prompting (CLP), which aims to effectively bridge the gap across different languages.
-It consists of two components: (1) *Cross-lingual Alignment Prompting* and (2) *Task-specific Solver Prompting*.
 
-Specifically, the **cross-lingual alignment prompting** is used to align representations between different languages. In our experiments, instead of the traditional `Let's think step by step`, we use `Let's understand the task in English step-by-step.`. 
-The inherent intuition is that as model gradually understands the task in English, it inherently captures the relationship between the source language and English.
-After aligning the representations between different languages, we further utilize a *task-specific solve prompting* to complete the final task by setting `Let's resolve the task you understand above step-by-step!`. Such simple yet effective CLP can greatly enhance the reasoning ability of cross-lingual scenarios. Furthermore, inspired by the self-consistency work, we propose cross-lingual self-consistent prompting (CLSP), which enables the model to ensemble different views of reasoning paths across languages.
 ## <img src="https://cdn.jsdelivr.net/gh/LightChen233/blog-img/notes.png" width="25" /> Reference
 
 If you find this project useful for your research, please consider citing the following paper:
 
 ```
-@misc{qin2023clp,
-      title={Cross-lingual Prompting: Improving Zero-shot Chain-of-Thought Reasoning across Languages}, 
-      author={Libo Qin and Qiguang Chen and Fuxuan Wei and Shijue Huang and Wanxiang Che},
-      year={2023},
-      eprint={xxx},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@inproceedings{qin-etal-2023-cross,
+    title = "Cross-lingual Prompting: Improving Zero-shot Chain-of-Thought Reasoning across Languages",
+    author = "Qin, Libo  and
+      Chen, Qiguang  and
+      Wei, Fuxuan  and
+      Huang, Shijue  and
+      Che, Wanxiang",
+    editor = "Bouamor, Houda  and
+      Pino, Juan  and
+      Bali, Kalika",
+    booktitle = "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+    month = dec,
+    year = "2023",
+    address = "Singapore",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.emnlp-main.163",
+    doi = "10.18653/v1/2023.emnlp-main.163",
+    pages = "2695--2709",
 }
 ```
 
@@ -67,6 +70,7 @@ python metric.py --dataset-name mgsm \
 - `dataset-name`: dataset name.
 - `exp-name`: experiment names, which are selected from `['CLP', 'CLSP']`, .
 
+## <img src="https://cdn.jsdelivr.net/gh/LightChen233/blog-img/motivation.png" width="25" />  Re-request for further exploration
 ### 1. Request from ChatGPT
 ```shell
 python request.py --api-key sk-xxx \
@@ -82,7 +86,7 @@ python request.py --api-key sk-xxx \
 
 ### 2. Merge Output Files
 ```shell
-python request.py --input-dir mgsm/output \
+python merge.py --input-dir mgsm/output \
                   --output-dir mgsm/output \
                   --parallel-num 10
 ```
@@ -110,4 +114,4 @@ python metric.py --input-dir mgsm/output \
 
 ## <img src="https://cdn.jsdelivr.net/gh/LightChen233/blog-img/intro.png" width="25" /> Contact
 
-Please create Github issues here or email [Libo Qin](mailto:lbqin@ir.hit.edu.cn) or [Qiguang Chen](mailto:charleschen2333@gmail.com) if you have any questions or suggestions.
+Please create Github issues here or email [Qiguang Chen](mailto:charleschen2333@gmail.com) or [Libo Qin](mailto:lbqin@csu.edu.cn) if you have any questions or suggestions.
